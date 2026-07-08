@@ -73,11 +73,74 @@
     "areas": [
       {
         "title": "Physical AI",
-        "description": "AI가 물리 세계의 신호와 환경을 인식하고 반응하는 기술을 연구합니다. 컴퓨터 비전, 이상 탐지, 신호 기반 위치 추정 등을 통해 실제 공간에서 작동하는 지능형 시스템을 개발합니다."
+        "description": "로봇 팔에 VLA(Vision-Language-Action) 모델을 적용하고 엣지 환경에 최적화된 경량 모델을 연구합니다. 컴퓨터 비전 기반 용접 결함·이상 탐지, 계층적 강화학습을 활용한 자율 제어, Wi-Fi Sensing을 통한 물체 형상 인식까지 — AI가 물리 세계를 인식하고 행동하는 기술 전반을 탐구합니다."
       },
       {
         "title": "Wireless AI",
-        "description": "무선통신 연구에서 출발해, Wi-Fi·LoRa 등 무선 기술에 AI/ML을 접목합니다. 신호 처리 자동화, 자원 할당 최적화, 채널 추정 지능화를 통해 더 스마트한 무선 환경을 구현합니다."
+        "description": "극저 SNR 환경에서 LoRa Preamble 검출과 심볼 복조 성능을 딥러닝으로 향상시킵니다. Wi-Fi CSI 기반 실내 위치 측위, LoRaWAN 스케줄링 최적화, IQ 데이터 압축을 통한 CRAN 구현까지 — 무선통신의 핵심 문제에 AI/ML을 접목해 더 신뢰할 수 있는 IoT 네트워크를 구현합니다."
+      }
+    ],
+    "topicsHeading": "세부 연구 주제",
+    "topics": [
+      {
+        "id": "vla",
+        "category": "Physical AI",
+        "categoryType": "physical",
+        "title": "VLA 기반 로봇 팔 제어",
+        "description": "자연어 명령으로 물체를 조작하는 Vision-Language-Action 모델을 로봇 팔에 적용합니다.",
+        "detail": "최신 대형 언어 모델(LLM)과 비전 모델을 결합한 VLA 아키텍처를 6축 로봇 팔에 적용합니다. '빨간 컵을 집어서 상자에 넣어'와 같은 자연어 명령을 로봇이 이해하고 실행할 수 있도록 end-to-end 학습 파이프라인을 구성합니다. 엣지 디바이스에서 실시간 동작이 가능하도록 Quantization·Pruning 기반 모델 경량화 기술도 함께 연구합니다.",
+        "keywords": ["VLA", "Robot Manipulation", "LLM", "Edge AI", "Model Compression"],
+        "img": ""
+      },
+      {
+        "id": "anomaly",
+        "category": "Physical AI",
+        "categoryType": "physical",
+        "title": "비전 기반 이상 탐지",
+        "description": "용접 결함과 제조 불량을 비지도 학습과 컴퓨터 비전으로 자동 검출합니다.",
+        "detail": "비지도 학습 기반 이상 탐지 방법론을 제조 현장에 적용합니다. 방사선 이미지에서 용접 결함을 자동으로 검출하는 시스템을 개발하였으며, 정상 데이터만으로 학습 가능한 Unsupervised 프레임워크를 구축합니다. XAI 기법을 접목해 결함 위치와 원인을 시각적으로 제시하고, 제조 공정의 품질 관리 자동화에 기여합니다.",
+        "keywords": ["Anomaly Detection", "Computer Vision", "Unsupervised Learning", "XAI", "Smart Factory"],
+        "img": ""
+      },
+      {
+        "id": "lora",
+        "category": "Wireless AI",
+        "categoryType": "wireless",
+        "title": "LoRa Physical Layer AI",
+        "description": "극저 SNR 환경에서 Preamble 검출과 심볼 복조 성능을 딥러닝으로 향상시킵니다.",
+        "detail": "LPWAN의 핵심 기술인 LoRa 변조 방식에서 극저 SNR 환경의 Preamble 검출 문제를 Chirp-Aware Self-Attention 구조로 해결합니다. Chirp 패턴을 인식하는 전용 모듈과 Self-Attention을 결합해 기존 방식 대비 월등한 검출 성능을 달성했으며, IEEE Internet of Things Journal에 게재되었습니다. 심볼 복조 단계에서는 Mask-Guided Neural Network를 적용해 복조 성능을 추가로 향상시킵니다.",
+        "keywords": ["LoRa", "Preamble Detection", "Self-Attention", "LPWAN", "Symbol Decoding"],
+        "img": ""
+      },
+      {
+        "id": "wifi-loc",
+        "category": "Wireless AI",
+        "categoryType": "wireless",
+        "title": "Wi-Fi CSI 실내 위치 측위",
+        "description": "채널 상태 정보(CSI)를 분석해 GPS 없이 실내에서 정밀한 위치를 추정합니다.",
+        "detail": "Wi-Fi 채널 상태 정보(CSI)는 신호가 실내 공간을 통과하며 만들어내는 다중경로 정보를 담고 있습니다. 단 2개의 AP만으로 정밀한 위치를 추정하는 Bilatangulation 알고리즘을 제안해 측정 오차를 보상합니다. 레이블 없이 공간 지도를 학습하는 Passive Channel Charting 방법도 함께 연구해 설치 부담을 최소화합니다.",
+        "keywords": ["Wi-Fi CSI", "Indoor Localization", "Bilatangulation", "Channel Charting", "Passive Sensing"],
+        "img": ""
+      },
+      {
+        "id": "rl",
+        "category": "강화학습",
+        "categoryType": "rl",
+        "title": "계층적 강화학습",
+        "description": "서브골 자동 발견과 Value-Gradient 탐색으로 복잡한 장거리 의사결정 문제를 해결합니다.",
+        "detail": "장거리 의사결정이 필요한 복잡한 환경에서 서브골(Subgoal)을 자동으로 발견하는 계층적 강화학습을 연구합니다. Value-Gradient 기반 서브골 탐색과 Reward Contrast 기법을 통해 희소 보상 환경에서의 학습 효율을 크게 높입니다. 물류·산업 현장의 자율 에이전트 구현을 최종 목표로 하며, ICAICTA 2025에서 관련 연구를 발표했습니다.",
+        "keywords": ["Hierarchical RL", "Subgoal Discovery", "Sparse Reward", "Value-Gradient", "Autonomous Agent"],
+        "img": ""
+      },
+      {
+        "id": "wifi-sense",
+        "category": "Physical AI",
+        "categoryType": "physical",
+        "title": "Wi-Fi Sensing",
+        "description": "Wi-Fi 신호만으로 정적 물체의 형상을 인식하고 실내 공간의 변화를 감지합니다.",
+        "detail": "카메라나 LiDAR 없이 Wi-Fi CSI 신호만으로 실내 물체의 형상을 인식하는 Passive Sensing 기술을 연구합니다. 물체가 주변 Wi-Fi 신호에 만드는 미세한 다중경로 변화를 머신러닝으로 분석해 형상 정보를 복원합니다. 프라이버시를 자연스럽게 보호하는 특성 덕분에 스마트 홈·빌딩·헬스케어 모니터링에 활용 가능합니다.",
+        "keywords": ["Wi-Fi Sensing", "CSI", "Object Shape Recognition", "Passive Sensing", "Smart Space"],
+        "img": ""
       }
     ]
   },
@@ -423,7 +486,7 @@
       "heading": "졸업생이 활약하는 곳",
       "description": "INC Lab을 거쳐간 졸업생들이 활약하고 있는 기업과 학교입니다.",
       "filterAll": "전체",
-      "namesHeading": "INC Lab을 거쳐간 사람들",
+      "namesHeading": "여러분이 남긴 값진 연구의 흔적은 지금도 우리에게 큰 영감이 되고 있습니다.",
       "degreeLabels": {
         "masters": "석사",
         "phd": "박사"

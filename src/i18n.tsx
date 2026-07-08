@@ -13,7 +13,9 @@ type LanguageContextValue = {
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Language>('ko');
+  const [language, setLanguage] = useState<Language>(
+    () => (sessionStorage.getItem('lang') as Language | null) ?? 'ko'
+  );
 
   const strings = useMemo(() => {
     return language === 'ko' ? ko : en;
@@ -23,7 +25,11 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     () => ({
       language,
       strings,
-      toggleLanguage: () => setLanguage((prev) => (prev === 'ko' ? 'en' : 'ko')),
+      toggleLanguage: () => setLanguage((prev) => {
+        const next = prev === 'ko' ? 'en' : 'ko';
+        sessionStorage.setItem('lang', next);
+        return next;
+      }),
     }),
     [language, strings]
   );

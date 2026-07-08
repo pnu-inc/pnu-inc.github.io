@@ -73,11 +73,74 @@
     "areas": [
       {
         "title": "Physical AI",
-        "description": "We study how AI perceives and responds to physical-world signals and environments. From computer vision and anomaly detection to signal-based localization, we build intelligent systems that operate in real-world spaces."
+        "description": "We apply VLA (Vision-Language-Action) models to robotic manipulation and develop lightweight models optimized for edge deployment. Our work spans computer vision-based weld defect and anomaly detection, hierarchical reinforcement learning for autonomous control, and Wi-Fi Sensing for object shape recognition — covering the full spectrum of AI that perceives and acts in the physical world."
       },
       {
         "title": "Wireless AI",
-        "description": "Rooted in wireless communication research, we integrate AI and ML into technologies like Wi-Fi and LoRa. We pursue smarter wireless environments through automated signal processing, resource allocation, and channel estimation."
+        "description": "We enhance LoRa preamble detection and symbol decoding under ultra-low SNR conditions using deep learning. Combined with Wi-Fi CSI-based indoor localization, LoRaWAN scheduling optimization, and IQ data compression for CRAN, we integrate AI/ML into the core of wireless communications to build more reliable IoT networks."
+      }
+    ],
+    "topicsHeading": "Research Topics",
+    "topics": [
+      {
+        "id": "vla",
+        "category": "Physical AI",
+        "categoryType": "physical",
+        "title": "VLA-Based Robot Arm Control",
+        "description": "Applying Vision-Language-Action models to robotic manipulation driven by natural language commands.",
+        "detail": "We apply a VLA architecture combining large language models (LLMs) with vision models to a 6-DOF robot arm. The system learns an end-to-end pipeline that lets the robot understand and execute natural language instructions such as 'pick up the red cup and place it in the box.' We also research quantization and pruning techniques to enable real-time operation on edge devices.",
+        "keywords": ["VLA", "Robot Manipulation", "LLM", "Edge AI", "Model Compression"],
+        "img": ""
+      },
+      {
+        "id": "anomaly",
+        "category": "Physical AI",
+        "categoryType": "physical",
+        "title": "Vision-Based Anomaly Detection",
+        "description": "Automated weld defect and manufacturing anomaly detection using unsupervised learning and computer vision.",
+        "detail": "We apply unsupervised anomaly detection methods to manufacturing environments. Our system automatically detects weld defects in radiographic images using a framework trainable on normal data alone. XAI techniques are integrated to visually highlight defect locations and underlying causes, supporting automated quality control in industrial processes.",
+        "keywords": ["Anomaly Detection", "Computer Vision", "Unsupervised Learning", "XAI", "Smart Factory"],
+        "img": ""
+      },
+      {
+        "id": "lora",
+        "category": "Wireless AI",
+        "categoryType": "wireless",
+        "title": "LoRa Physical Layer AI",
+        "description": "Improving preamble detection and symbol decoding performance under ultra-low SNR with deep learning.",
+        "detail": "We address the LoRa preamble detection problem under ultra-low SNR using a Chirp-Aware Self-Attention architecture that couples a chirp-recognition module with self-attention. The method achieves significantly better detection than conventional approaches and was published in IEEE Internet of Things Journal. We also apply Mask-Guided Neural Networks at the symbol decoding stage to further improve demodulation performance.",
+        "keywords": ["LoRa", "Preamble Detection", "Self-Attention", "LPWAN", "Symbol Decoding"],
+        "img": ""
+      },
+      {
+        "id": "wifi-loc",
+        "category": "Wireless AI",
+        "categoryType": "wireless",
+        "title": "Wi-Fi CSI Indoor Localization",
+        "description": "Estimating precise indoor positions without GPS by analyzing channel state information (CSI).",
+        "detail": "Wi-Fi channel state information (CSI) captures rich multipath data as signals propagate through indoor spaces. We propose Bilatangulation, a novel algorithm that estimates precise positions using just two APs while compensating for measurement errors. We also research Passive Channel Charting, which learns a spatial map without labeled data, minimizing deployment overhead.",
+        "keywords": ["Wi-Fi CSI", "Indoor Localization", "Bilatangulation", "Channel Charting", "Passive Sensing"],
+        "img": ""
+      },
+      {
+        "id": "rl",
+        "category": "Reinforcement Learning",
+        "categoryType": "rl",
+        "title": "Hierarchical Reinforcement Learning",
+        "description": "Solving complex long-horizon decision problems through automatic subgoal discovery and value-gradient exploration.",
+        "detail": "We research hierarchical reinforcement learning that automatically discovers subgoals in complex environments requiring long-horizon decision-making. Value-Gradient-based subgoal discovery and Reward Contrast exploration significantly improve learning efficiency in sparse-reward settings. Targeting autonomous agents for logistics and industrial environments, related work was presented at ICAICTA 2025.",
+        "keywords": ["Hierarchical RL", "Subgoal Discovery", "Sparse Reward", "Value-Gradient", "Autonomous Agent"],
+        "img": ""
+      },
+      {
+        "id": "wifi-sense",
+        "category": "Physical AI",
+        "categoryType": "physical",
+        "title": "Wi-Fi Sensing",
+        "description": "Recognizing static object shapes and detecting indoor spatial changes using only Wi-Fi signals.",
+        "detail": "We study passive sensing technology that recognizes indoor object shapes using only Wi-Fi CSI signals — no cameras or LiDAR required. Machine learning analyzes subtle multipath variations caused by objects in the Wi-Fi environment to reconstruct shape information. The privacy-preserving nature of this approach makes it ideal for smart home, smart building, and healthcare monitoring applications.",
+        "keywords": ["Wi-Fi Sensing", "CSI", "Object Shape Recognition", "Passive Sensing", "Smart Space"],
+        "img": ""
       }
     ]
   },
@@ -423,7 +486,7 @@
       "heading": "Where our alumni work",
       "description": "INC Lab graduates are making an impact across industry and academia.",
       "filterAll": "All",
-      "namesHeading": "Those who passed through INC Lab",
+      "namesHeading": "The valuable footprint of your research continues to inspire us today.",
       "degreeLabels": {
         "masters": "M.S.",
         "phd": "Ph.D."

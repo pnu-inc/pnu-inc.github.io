@@ -220,6 +220,17 @@ export default function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const closeMobileMenu = () => setMobileMenuOpen(false);
 
+  type Topic = typeof strings.research.topics[0];
+  const [selectedTopic, setSelectedTopic] = useState<Topic | null>(null);
+
+  useEffect(() => {
+    if (!selectedTopic) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setSelectedTopic(null); };
+    window.addEventListener('keydown', onKey);
+    document.body.style.overflow = 'hidden';
+    return () => { window.removeEventListener('keydown', onKey); document.body.style.overflow = ''; };
+  }, [selectedTopic]);
+
   const CAT_ICONS: Record<string, React.ReactNode> = {
     bigtech: <CpuIcon />,
     defense: <ShieldIcon />,
@@ -914,6 +925,37 @@ export default function App() {
                   </article>
                 ))}
               </div>
+
+              <div className="topic-grid" data-animate>
+                <p className="topic-grid-heading">{strings.research.topicsHeading}</p>
+                <div className="topic-cards">
+                  {strings.research.topics.map((topic) => (
+                    <article
+                      key={topic.id}
+                      className="topic-card"
+                      onClick={() => setSelectedTopic(topic)}
+                      role="button"
+                      tabIndex={0}
+                      onKeyDown={(e) => e.key === 'Enter' && setSelectedTopic(topic)}
+                    >
+                      <div className={`topic-card-media topic-card-media--${topic.categoryType}`}>
+                        {topic.img ? (
+                          <img src={topic.img} alt={topic.title} className="topic-card-img" />
+                        ) : (
+                          <span className="topic-card-placeholder-text">{topic.title}</span>
+                        )}
+                        <span className={`topic-badge topic-badge--${topic.categoryType}`}>
+                          {topic.category}
+                        </span>
+                      </div>
+                      <div className="topic-card-body">
+                        <h4 className="topic-card-title">{topic.title}</h4>
+                        <p className="topic-card-desc">{topic.description}</p>
+                      </div>
+                    </article>
+                  ))}
+                </div>
+              </div>
             </section>
 
             <section className="publications" id="publications" data-animate>
@@ -1226,7 +1268,7 @@ export default function App() {
               </div>
 
               <div className="alumni-names-section">
-                <h3 className="alumni-names-heading">{teamStrings.alumniSection.namesHeading}</h3>
+                <p className="alumni-names-heading">{teamStrings.alumniSection.namesHeading}</p>
                 <div className="alumni-name-wall">
                   {teamStrings.alumniSection.names.map((item, idx) => (
                     <div key={idx} className="alumni-name-card">
@@ -1242,6 +1284,35 @@ export default function App() {
           </section>
         )}
       </main>
+
+      {selectedTopic && (
+        <div className="topic-modal-backdrop" onClick={() => setSelectedTopic(null)}>
+          <div className="topic-modal" onClick={(e) => e.stopPropagation()}>
+            <div className={`topic-modal-media topic-modal-media--${selectedTopic.categoryType}`}>
+              {selectedTopic.img ? (
+                <img src={selectedTopic.img} alt={selectedTopic.title} className="topic-modal-img" />
+              ) : (
+                <span className="topic-modal-placeholder">{selectedTopic.title}</span>
+              )}
+              <button className="topic-modal-close" onClick={() => setSelectedTopic(null)} aria-label="닫기">
+                <CloseIcon />
+              </button>
+              <span className={`topic-badge topic-badge--${selectedTopic.categoryType}`}>
+                {selectedTopic.category}
+              </span>
+            </div>
+            <div className="topic-modal-body">
+              <h3 className="topic-modal-title">{selectedTopic.title}</h3>
+              <p className="topic-modal-detail">{selectedTopic.detail}</p>
+              <div className="topic-modal-keywords">
+                {selectedTopic.keywords.map((kw) => (
+                  <span key={kw} className={`topic-keyword topic-keyword--${selectedTopic.categoryType}`}>{kw}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       <footer className="site-footer" data-animate>
         <div className="footer-body">
