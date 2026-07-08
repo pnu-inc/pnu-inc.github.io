@@ -81,6 +81,7 @@
       }
     ],
     "topicsHeading": "Research Topics",
+    "topicsMore": "Learn more",
     "topics": [
       {
         "id": "vla",
@@ -93,9 +94,29 @@
         "img": ""
       },
       {
-        "id": "anomaly",
+        "id": "jetbot",
         "category": "Physical AI",
         "categoryType": "physical",
+        "title": "JetBot-Based Autonomous Robot",
+        "description": "Researching autonomous indoor navigation with a small robot built on the NVIDIA Jetson platform.",
+        "detail": "We use the NVIDIA Jetson-based JetBot platform to research autonomous mobility in indoor environments. Core algorithms — camera-based object recognition, collision avoidance, and path following — are deployed in real time on the edge device. We also explore language-guided navigation by integrating VLA models, enabling the robot to move to destinations specified by natural language commands.",
+        "keywords": ["JetBot", "NVIDIA Jetson", "Edge AI", "Autonomous Navigation", "Computer Vision"],
+        "img": ""
+      },
+      {
+        "id": "wifi-loc",
+        "category": "Wireless AI",
+        "categoryType": "wireless",
+        "title": "Wi-Fi CSI Indoor Localization",
+        "description": "Estimating precise indoor positions without GPS by analyzing channel state information (CSI).",
+        "detail": "Wi-Fi channel state information (CSI) captures rich multipath data as signals propagate through indoor spaces. We propose Bilatangulation, a novel algorithm that estimates precise positions using just two APs while compensating for measurement errors. We also research Passive Channel Charting, which learns a spatial map without labeled data, minimizing deployment overhead.",
+        "keywords": ["Wi-Fi CSI", "Indoor Localization", "Bilatangulation", "Channel Charting", "Passive Sensing"],
+        "img": ""
+      },
+      {
+        "id": "anomaly",
+        "category": "Image Processing",
+        "categoryType": "vision",
         "title": "Vision-Based Anomaly Detection",
         "description": "Automated weld defect and manufacturing anomaly detection using unsupervised learning and computer vision.",
         "detail": "We apply unsupervised anomaly detection methods to manufacturing environments. Our system automatically detects weld defects in radiographic images using a framework trainable on normal data alone. XAI techniques are integrated to visually highlight defect locations and underlying causes, supporting automated quality control in industrial processes.",
@@ -113,16 +134,6 @@
         "img": ""
       },
       {
-        "id": "wifi-loc",
-        "category": "Wireless AI",
-        "categoryType": "wireless",
-        "title": "Wi-Fi CSI Indoor Localization",
-        "description": "Estimating precise indoor positions without GPS by analyzing channel state information (CSI).",
-        "detail": "Wi-Fi channel state information (CSI) captures rich multipath data as signals propagate through indoor spaces. We propose Bilatangulation, a novel algorithm that estimates precise positions using just two APs while compensating for measurement errors. We also research Passive Channel Charting, which learns a spatial map without labeled data, minimizing deployment overhead.",
-        "keywords": ["Wi-Fi CSI", "Indoor Localization", "Bilatangulation", "Channel Charting", "Passive Sensing"],
-        "img": ""
-      },
-      {
         "id": "rl",
         "category": "Reinforcement Learning",
         "categoryType": "rl",
@@ -130,16 +141,6 @@
         "description": "Solving complex long-horizon decision problems through automatic subgoal discovery and value-gradient exploration.",
         "detail": "We research hierarchical reinforcement learning that automatically discovers subgoals in complex environments requiring long-horizon decision-making. Value-Gradient-based subgoal discovery and Reward Contrast exploration significantly improve learning efficiency in sparse-reward settings. Targeting autonomous agents for logistics and industrial environments, related work was presented at ICAICTA 2025.",
         "keywords": ["Hierarchical RL", "Subgoal Discovery", "Sparse Reward", "Value-Gradient", "Autonomous Agent"],
-        "img": ""
-      },
-      {
-        "id": "wifi-sense",
-        "category": "Physical AI",
-        "categoryType": "physical",
-        "title": "Wi-Fi Sensing",
-        "description": "Recognizing static object shapes and detecting indoor spatial changes using only Wi-Fi signals.",
-        "detail": "We study passive sensing technology that recognizes indoor object shapes using only Wi-Fi CSI signals — no cameras or LiDAR required. Machine learning analyzes subtle multipath variations caused by objects in the Wi-Fi environment to reconstruct shape information. The privacy-preserving nature of this approach makes it ideal for smart home, smart building, and healthcare monitoring applications.",
-        "keywords": ["Wi-Fi Sensing", "CSI", "Object Shape Recognition", "Passive Sensing", "Smart Space"],
         "img": ""
       }
     ]
@@ -486,7 +487,7 @@
       "heading": "Where our alumni work",
       "description": "INC Lab graduates are making an impact across industry and academia.",
       "filterAll": "All",
-      "namesHeading": "The valuable footprint of your research continues to inspire us today.",
+      "namesHeading": "Your research has left a lasting legacy that continues to inspire us today.",
       "degreeLabels": {
         "masters": "M.S.",
         "phd": "Ph.D."
@@ -550,162 +551,47 @@
         }
       ],
       "names": [
-        {
-          "name": "이현지",
-          "degree": "masters"
-        },
-        {
-          "name": "장수완",
-          "degree": "masters"
-        },
-        {
-          "name": "송병구",
-          "degree": "masters"
-        },
-        {
-          "name": "강동우",
-          "degree": "masters"
-        },
-        {
-          "name": "장효철",
-          "degree": "masters"
-        },
-        {
-          "name": "오두환",
-          "degree": "masters"
-        },
-        {
-          "name": "이성한",
-          "degree": "masters"
-        },
-        {
-          "name": "박현성",
-          "degree": "masters"
-        },
-        {
-          "name": "윤미경",
-          "degree": "masters"
-        },
-        {
-          "name": "한승호",
-          "degree": "masters"
-        },
-        {
-          "name": "양승철",
-          "degree": "masters"
-        },
-        {
-          "name": "이덕환",
-          "degree": "masters"
-        },
-        {
-          "name": "정재현",
-          "degree": "masters"
-        },
-        {
-          "name": "김태근",
-          "degree": "masters"
-        },
-        {
-          "name": "최현준",
-          "degree": "masters"
-        },
-        {
-          "name": "김세미",
-          "degree": "masters"
-        },
-        {
-          "name": "장정훈",
-          "degree": "masters"
-        },
-        {
-          "name": "정아정",
-          "degree": "masters"
-        },
-        {
-          "name": "서형윤",
-          "degree": "masters"
-        },
-        {
-          "name": "공종민",
-          "degree": "masters"
-        },
-        {
-          "name": "이성호",
-          "degree": "masters"
-        },
-        {
-          "name": "정종민",
-          "degree": "masters"
-        },
-        {
-          "name": "강인용",
-          "degree": "masters"
-        },
-        {
-          "name": "손성호",
-          "degree": "masters"
-        },
-        {
-          "name": "신재호",
-          "degree": "masters"
-        },
-        {
-          "name": "장재영",
-          "degree": "masters"
-        },
-        {
-          "name": "임준영",
-          "degree": "masters"
-        },
-        {
-          "name": "박정빈",
-          "degree": "masters"
-        },
-        {
-          "name": "이채석",
-          "degree": "phd"
-        },
-        {
-          "name": "변승규",
-          "degree": "phd"
-        },
-        {
-          "name": "류승룡",
-          "degree": "masters"
-        },
-        {
-          "name": "최국철",
-          "degree": "masters"
-        },
-        {
-          "name": "허준환",
-          "degree": "phd"
-        },
-        {
-          "name": "이재민",
-          "degree": "masters"
-        },
-        {
-          "name": "강명현",
-          "degree": "masters"
-        },
-        {
-          "name": "조아라",
-          "degree": "masters"
-        },
-        {
-          "name": "박재현",
-          "degree": "masters"
-        },
-        {
-          "name": "Yoshima Syach Putri",
-          "degree": "masters"
-        },
-        {
-          "name": "Konan Ruth Emmanuelle Victoire",
-          "degree": "phd"
-        }
+        { "name": "이현지",                        "degree": "masters" },
+        { "name": "장수완",                        "degree": "masters" },
+        { "name": "송병구",                        "degree": "masters" },
+        { "name": "강동우",                        "degree": "masters" },
+        { "name": "장효철",                        "degree": "masters" },
+        { "name": "오두환",                        "degree": "masters" },
+        { "name": "이성한",                        "degree": "masters" },
+        { "name": "박현성",                        "degree": "phd"     },
+        { "name": "윤미경",                        "degree": "masters" },
+        { "name": "한승호",                        "degree": "masters" },
+        { "name": "김동현",                        "degree": "phd"     },
+        { "name": "양승철",                        "degree": "phd"     },
+        { "name": "이덕환",                        "degree": "masters" },
+        { "name": "정재현",                        "degree": "masters" },
+        { "name": "김태근",                        "degree": "masters" },
+        { "name": "최현준",                        "degree": "masters" },
+        { "name": "이채석",                        "degree": "phd"     },
+        { "name": "김세미",                        "degree": "masters" },
+        { "name": "장정훈",                        "degree": "masters" },
+        { "name": "정아정",                        "degree": "masters" },
+        { "name": "서형윤",                        "degree": "phd"     },
+        { "name": "공종민",                        "degree": "masters" },
+        { "name": "이성호",                        "degree": "phd"     },
+        { "name": "변승규",                        "degree": "phd"     },
+        { "name": "정종민",                        "degree": "masters" },
+        { "name": "강인용",                        "degree": "masters" },
+        { "name": "손성호",                        "degree": "masters" },
+        { "name": "허준환",                        "degree": "phd"     },
+        { "name": "신재호",                        "degree": "masters" },
+        { "name": "장재영",                        "degree": "masters" },
+        { "name": "임준영",                        "degree": "masters" },
+        { "name": "박정빈",                        "degree": "masters" },
+        { "name": "이재민",                        "degree": "phd"     },
+        { "name": "Tanjung Dion",                  "degree": "phd"     },
+        { "name": "Yoshima Syach Putri",           "degree": "masters" },
+        { "name": "류승룡",                        "degree": "masters" },
+        { "name": "최국철",                        "degree": "masters" },
+        { "name": "Konan Ruth Emmanuelle Victoire","degree": "masters" },
+        { "name": "강명현",                        "degree": "masters" },
+        { "name": "조아라",                        "degree": "masters" },
+        { "name": "박재현",                        "degree": "masters" }
       ],
       "companies": [
         "Samsung Electronics",

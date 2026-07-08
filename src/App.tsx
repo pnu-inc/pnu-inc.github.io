@@ -8,6 +8,19 @@ const incLogo = new URL('../assets/inc_logo2.png', import.meta.url).href;
 
 const researchImages = [physicalAIPhoto, wirelessAIPhoto];
 
+const topicImages: Record<string, string> = {
+  'anomaly':  new URL('../assets/image_processing.png', import.meta.url).href,
+  'lora':     new URL('../assets/calora.png',           import.meta.url).href,
+  'wifi-loc': new URL('../assets/wifi-sensing.png',     import.meta.url).href,
+};
+
+const CATEGORY_GRADIENTS: Record<string, string> = {
+  'physical': 'linear-gradient(135deg, #0f3470 0%, #1a52a0 55%, #2d7dd2 100%)',
+  'wireless': 'linear-gradient(135deg, #9e2a14 0%, #c44020 60%, #d06818 100%)',
+  'rl':       'linear-gradient(135deg, #3b1578 0%, #6d28d9 55%, #8b5cf6 100%)',
+  'vision':   'linear-gradient(135deg, #064e48 0%, #0d9488 55%, #14b8a6 100%)',
+};
+
 const MapPinIcon = () => (
   <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
     <path d="M8 1C5.239 1 3 3.239 3 6c0 4 5 9.5 5 9.5S13 10 13 6c0-2.761-2.239-5-5-5z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round"/>
@@ -938,15 +951,16 @@ export default function App() {
                       tabIndex={0}
                       onKeyDown={(e) => e.key === 'Enter' && setSelectedTopic(topic)}
                     >
-                      <div className={`topic-card-media topic-card-media--${topic.categoryType}`}>
-                        {topic.img ? (
-                          <img src={topic.img} alt={topic.title} className="topic-card-img" />
-                        ) : (
-                          <span className="topic-card-placeholder-text">{topic.title}</span>
-                        )}
-                        <span className={`topic-badge topic-badge--${topic.categoryType}`}>
-                          {topic.category}
-                        </span>
+                      <div className="topic-card-media" style={{ background: CATEGORY_GRADIENTS[topic.categoryType] }}>
+                        <span className="topic-badge">{topic.category}</span>
+                        <div className="topic-card-hover">
+                          <span className="topic-more-btn">
+                            {strings.research.topicsMore}
+                            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                              <path d="M3 7h8M7.5 4l3.5 3-3.5 3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                          </span>
+                        </div>
                       </div>
                       <div className="topic-card-body">
                         <h4 className="topic-card-title">{topic.title}</h4>
@@ -1285,34 +1299,40 @@ export default function App() {
         )}
       </main>
 
-      {selectedTopic && (
-        <div className="topic-modal-backdrop" onClick={() => setSelectedTopic(null)}>
-          <div className="topic-modal" onClick={(e) => e.stopPropagation()}>
-            <div className={`topic-modal-media topic-modal-media--${selectedTopic.categoryType}`}>
-              {selectedTopic.img ? (
-                <img src={selectedTopic.img} alt={selectedTopic.title} className="topic-modal-img" />
-              ) : (
-                <span className="topic-modal-placeholder">{selectedTopic.title}</span>
-              )}
-              <button className="topic-modal-close" onClick={() => setSelectedTopic(null)} aria-label="닫기">
-                <CloseIcon />
-              </button>
-              <span className={`topic-badge topic-badge--${selectedTopic.categoryType}`}>
-                {selectedTopic.category}
-              </span>
-            </div>
-            <div className="topic-modal-body">
-              <h3 className="topic-modal-title">{selectedTopic.title}</h3>
-              <p className="topic-modal-detail">{selectedTopic.detail}</p>
-              <div className="topic-modal-keywords">
-                {selectedTopic.keywords.map((kw) => (
-                  <span key={kw} className={`topic-keyword topic-keyword--${selectedTopic.categoryType}`}>{kw}</span>
-                ))}
+      {selectedTopic && (() => {
+        const modalImg = topicImages[selectedTopic.id];
+        const modalBg = CATEGORY_GRADIENTS[selectedTopic.categoryType];
+        return (
+          <div className="topic-modal-backdrop" onClick={() => setSelectedTopic(null)}>
+            <div className={`topic-modal${modalImg ? ' has-image' : ''}`} onClick={(e) => e.stopPropagation()}>
+              {/* 얇은 컬러 헤더 */}
+              <div className="topic-modal-header" style={{ background: modalBg }}>
+                <span className="topic-badge">{selectedTopic.category}</span>
+                <button className="topic-modal-close" onClick={() => setSelectedTopic(null)} aria-label="닫기">
+                  <CloseIcon />
+                </button>
+              </div>
+              {/* 본문: 데스크톱=좌우, 모바일=상하 */}
+              <div className="topic-modal-content">
+                {modalImg && (
+                  <div className="topic-modal-img-side">
+                    <img src={modalImg} alt={selectedTopic.title} className="topic-modal-img" />
+                  </div>
+                )}
+                <div className="topic-modal-body">
+                  <h3 className="topic-modal-title">{selectedTopic.title}</h3>
+                  <p className="topic-modal-detail">{selectedTopic.detail}</p>
+                  <div className="topic-modal-keywords">
+                    {selectedTopic.keywords.map((kw) => (
+                      <span key={kw} className={`topic-keyword topic-keyword--${selectedTopic.categoryType}`}>{kw}</span>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      )}
+        );
+      })()}
 
       <footer className="site-footer" data-animate>
         <div className="footer-body">

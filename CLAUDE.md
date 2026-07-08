@@ -69,6 +69,29 @@
   - 설명: 한 줄, 모바일에서만 white-space: normal (줄바꿈 허용)
 - 연구 분야: Physical AI / Wireless AI 카드 (이미지 + 설명)
   - 이미지: `assets/physicalAI.png`, `assets/wirelessAI.png`
+  - 설명: 실제 연구 주제 기반으로 업데이트됨 (VLA, 이상탐지, LoRa, Wi-Fi CSI 등)
+- **세부 연구 주제 (`topic-grid`)**: research-grid 바로 아래, 3열 2행 카드 그리드
+  - **카드 순서** (6개): VLA 로봇팔 → 젯봇 자율주행 → Wi-Fi CSI 위치측위 → 이상탐지 → LoRa Physical Layer → 강화학습
+  - **카테고리 4종** (각 분야별 색상):
+    - `physical` (Physical AI) → 딥블루 `#0f3470→#2d7dd2`
+    - `wireless` (Wireless AI) → 레드 `#9e2a14→#d06818`
+    - `rl` (강화학습) → 바이올렛 `#3b1578→#8b5cf6`
+    - `vision` (이미지처리) → 틸 `#064e48→#14b8a6`
+  - JSON: `research.topics[]` → `{ id, category, categoryType, title, description, detail, keywords[], img }`
+  - **카드 기본 상태**: 이미지 없음, 카테고리 그라데이션 배경만 표시 (`CATEGORY_GRADIENTS` 맵)
+  - **hover**: 반투명 오버레이 + "자세히 보기 →" pill 버튼 등장 (media 영역에만)
+  - **카드 클릭 → 모달** (`selectedTopic` state, Esc·배경클릭 닫힘)
+    - **헤더**: 52px 얇은 컬러 스트라이프 + 배지 + ✕ 버튼
+    - **데스크톱 (640px+)**: 좌(이미지 55%, 흰 배경) + 우(텍스트 45%) 가로 레이아웃
+      - 크기: `min(1200px, 94vw)`, 최소 높이 560px
+    - **모바일**: 세로 배치 (이미지 상단, 텍스트 하단)
+    - 이미지: `object-fit: contain`, 흰 배경에 전체 이미지 표시
+    - keyword pill 색상: 카테고리별 구분
+  - **이미지 관리**: JSON `img` 필드 대신 `App.tsx`의 `topicImages` 맵으로 관리
+    ```ts
+    topicImages = { 'anomaly': image_processing.png, 'lora': calora.png, 'wifi-loc': wifi-sensing.png }
+    ```
+    - 새 이미지 추가: `assets/`에 파일 저장 → `topicImages` 맵에 `'topicId': URL` 추가
 - 최신 논문: `publicationsPage.years`에서 자동 파생 (상위 5개)
 
 ### 논문 페이지 (publications)
@@ -97,6 +120,9 @@
 
 ### 연구실 사람들 페이지 (team)
 - 현재 멤버 목록 + 졸업생 섹션
+- 졸업생 이름 문구(`.alumni-names-heading`): 빨강→주황 그라데이션 텍스트, `1.15rem`, semibold
+  - 배경·선·이탤릭 없는 순수 타이포그래피 스타일
+- 졸업생 이름 목록: ko.json과 en.json 순서·학위 일치 확인 완료 (2026-07-08)
 
 ### Footer
 - 3컬럼 구조: 브랜드+태그라인 | 바로가기(3×2 그리드) | 연락처
@@ -142,8 +168,11 @@ incLogo = assets/inc_logo2.png
 ## 페이지 상태 관리
 - `activePage`: `'home' | 'publications' | 'professor' | 'team' | 'contact'`
 - **sessionStorage**로 persist → 새로고침 시 현재 페이지 유지
+- **언어 설정**: `sessionStorage('lang')`으로 persist → 새로고침 시 영어 유지됨
+  - `i18n.tsx`의 `useState` 초기값에서 sessionStorage 읽고, `toggleLanguage`에서 저장
 - 언어 전환 시 홈으로 리셋 안 함 (현재 페이지 유지)
-- `scrollToSection()`: home 이동 + 스크롤 (연구/최신논문 섹션용)
+- `scrollToSection(sectionId, event)`: event 인자 필수 — footer에서는 직접 `scrollIntoView` 사용
+- `selectedTopic`: 세부 연구 주제 모달 상태 (`Topic | null`), Esc 키·backdrop 클릭으로 닫힘
 
 ## 반응형 브레이크포인트
 - `≤ 980px`: 교수/팀 레이아웃 1열 전환, project-card 2열→1열
