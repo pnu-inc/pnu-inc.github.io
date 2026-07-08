@@ -193,13 +193,22 @@
       "phone": "전화",
       "email": "이메일"
     },
+    "careerHeading": "주요 경력",
+    "careers": [
+      { "org": "Digital-X AIoT 연구센터", "role": "센터장", "period": "2023 ~ 현재" },
+      { "org": "부산대학교 교육혁신본부", "role": "본부장", "period": "2026 ~ 현재" },
+      { "org": "부산대학교 장영실AI융합연구원", "role": "원장", "period": "2026 ~ 현재" },
+      { "org": "동남권 Grand ICT", "role": "부센터장", "period": "2016 ~ 2023" },
+      { "org": "한국정보과학회", "role": "부회장", "period": "2024" },
+      { "org": "한국정보과학회 영남지부", "role": "지부장", "period": "2024" }
+    ],
     "historyHeading": "학력 및 경력",
     "history": [
       {
         "period": "1994 ~ 1996",
         "badge": "석사",
         "institution": "서울대학교",
-        "role": "전상과학 이학석사"
+        "role": "전산과학 이학석사"
       },
       {
         "period": "1996 ~ 2003",
@@ -1587,14 +1596,29 @@
       },
       {
         "label": "홈페이지",
-        "value": "http://inc.pusan.ac.kr",
+        "value": "http://pnu-inc.github.io",
         "type": "web"
       }
     ]
   },
   "footer": {
-    "line1": "부산대학교 정보컴퓨터공학부 INC 연구실",
-    "line2": "© 2026 PNU INC Lab"
+    "brand": "INC Lab",
+    "brandSub": "Intelligence & Networking Labs",
+    "tagline": "Physical AI와 Wireless AI로 미래를 연구합니다.",
+    "navHeading": "바로가기",
+    "navLinks": [
+      { "label": "홈", "page": "home" },
+      { "label": "연구 분야", "page": "home", "section": "research" },
+      { "label": "논문", "page": "publications" },
+      { "label": "지도교수", "page": "professor" },
+      { "label": "연구실 사람들", "page": "team" },
+      { "label": "문의", "page": "contact" }
+    ],
+    "contactHeading": "연락처",
+    "address": "부산광역시 금정구 부산대학로63번길 2 IT관 506호",
+    "phone": "051-510-3941",
+    "email": "mobile@mobile.re.kr",
+    "copyright": "© 2026 PNU INC Lab · 부산대학교 정보컴퓨터공학부"
   },
   "toggleLabel": "EN"
 }

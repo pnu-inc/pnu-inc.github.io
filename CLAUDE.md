@@ -1,7 +1,8 @@
 # PNU INC Lab Website
 
 ## 프로젝트 개요
-부산대 INC Lab(김종덕 교수) 연구실 웹사이트. yunseob.github.io/pnuinc/ 로 배포 예정.
+부산대 INC Lab(김종덕 교수) 연구실 웹사이트. **pnu-inc.github.io** 로 배포.
+(이전: yunseob.github.io/pnuinc/ → 현재: pnu-inc 조직 계정으로 이전 완료)
 
 ## 연구실 소개
 - 연구실명: PNU INC Lab (지능통신연구실)
@@ -11,8 +12,8 @@
 
 ## 기술 스택
 - Vite + React + TypeScript
-- base path: `/pnuinc/`
-- 배포: GitHub Pages (`yunseob.github.io/pnuinc/`)
+- base path: `/` (조직 페이지이므로 서브패스 없음)
+- 배포: GitHub Pages (`pnu-inc.github.io`) — GitHub Actions 자동 배포
 - 다국어: 상태 기반 언어 전환 (URL 변경 없음, ko.json / en.json)
 - 단일 파일 구조: `src/App.tsx` (별도 컴포넌트 파일 없음)
 
@@ -55,6 +56,9 @@
 - 너무 큰 헤드라인 폰트 (7.5rem → 4rem으로 축소)
 - "산업" 키워드를 강조하는 헤드라인
 - 논문 제목에 큰따옴표 (제거됨)
+- 역할(센터장/본부장 등)에 배경색 있는 pill 배지 → "촌스럽다"고 거부
+- 경력 목록 항목 사이 구분선(border-bottom) → 텍스트만으로 표현 선호
+- Footer 바로가기를 단일 컬럼으로 나열 → 높이가 너무 길어짐
 
 ## 현재 페이지 구조 (activePage state)
 
@@ -75,16 +79,33 @@
 - 논문 추가 시 `ko.json`의 `publicationsPage.years` 배열 편집
 
 ### 지도교수 페이지 (professor)
-- 레이아웃: 사진(340px 고정) | 정보(flexible)
-- 정보 영역: 이름/직위 → 학과/전화/이메일 연락처 → 학력·경력 타임라인
+- 레이아웃: `professor-layout` (grid: 340px | 1fr, 2행)
+  - 1행: 사진 | professor-info(이름/직위 + professor-contact)
+  - 2행: professor-history (`grid-column: 1/-1`, 전체 너비)
+- **professor-contact**: 2컬럼 그리드 (`1fr 1.8fr`)
+  - 왼쪽(`prof-contact-left`): 학과 / 전화 / 이메일
+  - 오른쪽(`prof-careers`): 주요 경력 목록 (3×2 그리드)
+- **주요 경력 스타일**: 텍스트만 사용, 선/배지 없음
+  - 기관명(bold) 위 + `역할(#2d7dd2 단색) · 기간` 아래
+  - JSON: `professorPage.careers[]` → `{ org, role, period }`
 - **학력·경력 타임라인**: 가로 수평, 3행 독립 구조 (기간 행 / 점+선 행 / 설명 행)
   - 각 항목: `period`, `badge`, `institution`(위), `role`(아래)
   - 선: `#b53922` → `#ff9d53` 그라데이션, 점: 14px 원
+  - professor-history는 professor-info 밖에 있음 (그리드 2행에 위치)
 - **주요 수행 과제**: 카드 형태 (번호 그라데이션 + 제목 + 요약 + 기간)
 - **대표 성과**: 1컬럼, 논문(DocIcon 빨강) / 특허(PatentIcon 주황) 아이콘 구분
 
 ### 연구실 사람들 페이지 (team)
 - 현재 멤버 목록 + 졸업생 섹션
+
+### Footer
+- 3컬럼 구조: 브랜드+태그라인 | 바로가기(3×2 그리드) | 연락처
+- 바로가기: 홈/연구분야/논문/지도교수/연구실사람들/문의 — 3열 2행
+- 연락처: MapPinIcon + 주소, PhoneIcon + 전화, MailIcon + 이메일
+- 하단: `footer-bottom` 구분선 + 저작권 텍스트
+- `margin-top: 48px`으로 콘텐츠와 간격 확보
+- JSON: `footer.brand`, `footer.tagline`, `footer.navLinks[]`, `footer.contactHeading`, `footer.address`, `footer.phone`, `footer.email`, `footer.copyright`
+- footer는 추후 추가 개선 예정
 
 ### 문의 페이지 (contact)
 - Google Maps iframe embed (API 키 불필요)
@@ -101,8 +122,11 @@ highlightAuthors(authors, highlights)
   → authors를 쉼표 분리 후 highlights 배열과 매칭, .pub-author-highlight 적용
   → 수동 지정 방식 (자동 감지 아님)
 
+scrollToSection(sectionId, event)
+  → event 인자 필수. footer에서는 직접 scrollIntoView 사용
+
 SVG 아이콘 목록:
-  MapPinIcon / PhoneIcon / MailIcon / GlobeIcon / BuildingIcon  → 문의 페이지
+  MapPinIcon / PhoneIcon / MailIcon / GlobeIcon / BuildingIcon  → 문의 페이지 + footer
   HamburgerIcon / CloseIcon                                     → 모바일 메뉴
   JournalIcon / ConferenceIcon                                  → 논문 타입 범례
   DocIcon / ExternalLinkIcon                                    → 논문 목록
@@ -112,7 +136,7 @@ researchImages = [physicalAIPhoto, wirelessAIPhoto]
   → 연구 분야 카드 이미지 배열 (순서 = JSON areas 순서)
 
 incLogo = assets/inc_logo2.png
-  → 헤더 brand 로고 이미지 (+ "INC" + "Intelligence & Networking Labs" 텍스트)
+  → 헤더 brand 로고 이미지 + footer 로고 (32px)
 ```
 
 ## 페이지 상태 관리
@@ -152,6 +176,13 @@ incLogo = assets/inc_logo2.png
 - 최신 연도를 `years` 배열 **맨 앞**에 추가해야 홈 최신 5개에 반영됨
 - `type`: `"journal"` (빨강) / `"conference"` (파랑)
 - en.json도 동일하게 업데이트 필요
+
+### 교수 페이지 주요 경력 수정 (`ko.json` → `professorPage.careers`)
+```json
+{ "org": "기관명", "role": "직책", "period": "2023 ~ 현재" }
+```
+- 6개 항목, 권위 높은 순서로 정렬 (순서가 시각적 중요도를 의미)
+- 화면에서 3열 2행 그리드로 표시됨
 
 ### 교수 페이지 학력·경력 수정 (`ko.json` → `professorPage.history`)
 ```json

@@ -784,9 +784,24 @@ a.contact-item-value:hover {
 .professor-layout {
   display: grid;
   grid-template-columns: 340px 1fr;
+  grid-template-rows: auto auto;
   gap: 32px;
   align-items: start;
   margin-top: 28px;
+}
+
+.professor-history {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.professor-history h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
 }
 
 .professor-photo {
@@ -824,12 +839,96 @@ a.contact-item-value:hover {
 }
 
 .professor-contact {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  padding: 18px 0;
+  display: grid;
+  grid-template-columns: 1fr 1.8fr;
+  gap: 0 40px;
+  padding: 22px 0;
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
+}
+
+.prof-contact-left {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-right: 40px;
+  border-right: 1px solid var(--color-border);
+}
+
+/* ── Career highlights ── */
+.prof-careers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.career-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 24px;
+}
+
+.career-item {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.career-org {
+  font-size: 0.85rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.career-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.career-role {
+  font-size: 0.73rem;
+  font-weight: var(--font-weight-semibold);
+  color: #2d7dd2;
+  white-space: nowrap;
+}
+
+.career-dot {
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  background: var(--color-text-soft);
+  opacity: 0.4;
+  flex-shrink: 0;
+}
+
+.career-period {
+  font-size: 0.72rem;
+  color: var(--color-text-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 980px) {
+  .professor-contact {
+    grid-template-columns: 1fr;
+    gap: 20px 0;
+  }
+
+  .prof-contact-left {
+    padding-right: 0;
+    border-right: none;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .career-list {
+    grid-template-columns: 1fr;
+  }
 }
 
 .contact-item-compact {
@@ -863,18 +962,6 @@ a.contact-item-value:hover {
   text-decoration: underline;
 }
 
-.professor-history {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.professor-history h3 {
-  margin: 0;
-  font-size: 1rem;
-  font-weight: var(--font-weight-bold);
-  color: var(--color-text);
-}
 
 /* ── Timeline (3-row independent grid) ── */
 .timeline {
@@ -2007,13 +2094,151 @@ a.contact-item-value:hover {
 }
 
 .site-footer {
-  padding: 54px 0 0;
-  display: flex;
-  justify-content: space-between;
-  gap: 24px;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 48px;
+  border-top: 1px solid var(--color-border);
   color: var(--color-text-soft);
   font-size: var(--font-size-sm);
+}
+
+.footer-body {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1.4fr;
+  gap: 48px;
+  padding: 52px 0 40px;
+}
+
+.footer-brand-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-logo {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+
+.footer-brand-name {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  line-height: 1.2;
+}
+
+.footer-brand-sub {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--color-text-soft);
+  line-height: 1.3;
+}
+
+.footer-tagline {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--color-text-soft);
+  line-height: 1.6;
+  max-width: 340px;
+  white-space: nowrap;
+}
+
+.footer-col-heading {
+  margin: 0 0 14px;
+  font-size: 0.72rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.footer-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: 8px 20px;
+  justify-content: start;
+}
+
+.footer-nav-link {
+  font-size: 0.83rem;
+  color: var(--color-text-soft);
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+.footer-nav-link:hover {
+  color: var(--color-primary);
+}
+
+.footer-contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-contact-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.83rem;
+  color: var(--color-text-soft);
+  line-height: 1.45;
+}
+
+.footer-contact-list li svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--color-primary);
+}
+
+.footer-contact-list li:nth-child(2) svg {
+  color: var(--color-accent);
+}
+
+.footer-contact-list li:nth-child(3) svg {
+  color: var(--color-primary);
+}
+
+.footer-contact-list a {
+  color: var(--color-text-soft);
+  text-decoration: none;
+  transition: color 0.18s ease;
+}
+
+.footer-contact-list a:hover {
+  color: var(--color-primary);
+}
+
+.footer-bottom {
+  padding: 20px 0;
+  border-top: 1px solid var(--color-border);
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--color-text-soft);
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .footer-body {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding: 40px 0 32px;
+  }
 }
 
 .animate-on-scroll,
@@ -2126,6 +2351,10 @@ a.contact-item-value:hover {
 
 .mobile-nav a:hover {
   color: var(--color-primary);
+}
+
+.mobile-menu .lang-toggle-split {
+  align-self: flex-start;
 }
 
 @media (max-width: 768px) {

@@ -193,6 +193,15 @@
       "phone": "Phone",
       "email": "Email"
     },
+    "careerHeading": "Key Roles",
+    "careers": [
+      { "org": "Digital-X AIoT Research Center", "role": "Director", "period": "2023 ~ present" },
+      { "org": "PNU Educational Innovation HQ", "role": "Head", "period": "2026 ~ present" },
+      { "org": "PNU Jang Yeong-Sil AI Convergence Institute", "role": "Director", "period": "2026 ~ present" },
+      { "org": "Southeast Grand ICT", "role": "Deputy Director", "period": "2016 ~ 2023" },
+      { "org": "Korean Institute of Information Scientists & Engineers", "role": "Vice President", "period": "2024" },
+      { "org": "KIISE Yeongnam Chapter", "role": "Chapter President", "period": "2024" }
+    ],
     "historyHeading": "Education & Career",
     "history": [
       {
@@ -1609,14 +1618,29 @@
       },
       {
         "label": "Website",
-        "value": "http://inc.pusan.ac.kr",
+        "value": "http://pnu-inc.github.io",
         "type": "web"
       }
     ]
   },
   "footer": {
-    "line1": "PNU INC Lab, Department of Computer Science",
-    "line2": "© 2026 PNU INC Lab"
+    "brand": "INC Lab",
+    "brandSub": "Intelligence & Networking Labs",
+    "tagline": "Researching the future with Physical AI and Wireless AI.",
+    "navHeading": "Navigate",
+    "navLinks": [
+      { "label": "Home", "page": "home" },
+      { "label": "Research", "page": "home", "section": "research" },
+      { "label": "Publications", "page": "publications" },
+      { "label": "Advisor", "page": "professor" },
+      { "label": "Lab Members", "page": "team" },
+      { "label": "Contact", "page": "contact" }
+    ],
+    "contactHeading": "Contact",
+    "address": "Room 506, IT Building, PNU, Busan 46241",
+    "phone": "051-510-3941",
+    "email": "mobile@mobile.re.kr",
+    "copyright": "© 2026 PNU INC Lab · Dept. of CSE, Pusan National University"
   },
   "toggleLabel": "KO"
 }

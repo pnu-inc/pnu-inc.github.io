@@ -1055,41 +1055,58 @@ export default function App() {
                   <p className="professor-role">{professorStrings.role}</p>
                 </div>
                 <div className="professor-contact">
-                  <div className="contact-item-compact">
-                    <p className="contact-label">{professorStrings.contactLabels.department}</p>
-                    <p className="contact-value">{professorStrings.department}</p>
+                  <div className="prof-contact-left">
+                    <div className="contact-item-compact">
+                      <p className="contact-label">{professorStrings.contactLabels.department}</p>
+                      <p className="contact-value">{professorStrings.department}</p>
+                    </div>
+                    <div className="contact-item-compact">
+                      <p className="contact-label">{professorStrings.contactLabels.phone}</p>
+                      <a href={`tel:${professorStrings.phone}`} className="contact-value contact-link">{professorStrings.phone}</a>
+                    </div>
+                    <div className="contact-item-compact">
+                      <p className="contact-label">{professorStrings.contactLabels.email}</p>
+                      <a href={`mailto:${professorStrings.email}`} className="contact-value contact-link">{professorStrings.email}</a>
+                    </div>
                   </div>
-                  <div className="contact-item-compact">
-                    <p className="contact-label">{professorStrings.contactLabels.phone}</p>
-                    <a href={`tel:${professorStrings.phone}`} className="contact-value contact-link">{professorStrings.phone}</a>
-                  </div>
-                  <div className="contact-item-compact">
-                    <p className="contact-label">{professorStrings.contactLabels.email}</p>
-                    <a href={`mailto:${professorStrings.email}`} className="contact-value contact-link">{professorStrings.email}</a>
+                  <div className="prof-careers">
+                    <p className="contact-label">{professorStrings.careerHeading}</p>
+                    <ul className="career-list">
+                      {professorStrings.careers.map((c, idx) => (
+                        <li key={idx} className="career-item">
+                          <span className="career-org">{c.org}</span>
+                          <div className="career-meta">
+                            <span className="career-role">{c.role}</span>
+                            <span className="career-dot" aria-hidden="true" />
+                            <span className="career-period">{c.period}</span>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </div>
-                <div className="professor-history">
-                  <h3>{professorStrings.historyHeading}</h3>
-                  <div className="timeline">
-                    <div className="timeline-periods">
-                      {professorStrings.history.map((item, idx) => (
-                        <span key={idx} className="timeline-period">{item.period}</span>
-                      ))}
+              </div>
+            </div>
+            <div className="professor-history">
+              <h3>{professorStrings.historyHeading}</h3>
+              <div className="timeline">
+                <div className="timeline-periods">
+                  {professorStrings.history.map((item, idx) => (
+                    <span key={idx} className="timeline-period">{item.period}</span>
+                  ))}
+                </div>
+                <div className="timeline-track">
+                  {professorStrings.history.map((_, idx) => (
+                    <div key={idx} className="timeline-dot" />
+                  ))}
+                </div>
+                <div className="timeline-descriptions">
+                  {professorStrings.history.map((item, idx) => (
+                    <div key={idx} className="timeline-desc-item">
+                      <span className="timeline-institution">{item.institution}</span>
+                      <span className="timeline-role">{item.role}</span>
                     </div>
-                    <div className="timeline-track">
-                      {professorStrings.history.map((_, idx) => (
-                        <div key={idx} className="timeline-dot" />
-                      ))}
-                    </div>
-                    <div className="timeline-descriptions">
-                      {professorStrings.history.map((item, idx) => (
-                        <div key={idx} className="timeline-desc-item">
-                          <span className="timeline-institution">{item.institution}</span>
-                          <span className="timeline-role">{item.role}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -1227,9 +1244,64 @@ export default function App() {
       </main>
 
       <footer className="site-footer" data-animate>
-        <div className="footer-copy">
-          <p>{strings.footer.line1}</p>
-          <p>{strings.footer.line2}</p>
+        <div className="footer-body">
+          <div className="footer-brand-col">
+            <div className="footer-brand">
+              <img src={incLogo} alt="INC Lab" className="footer-logo" />
+              <div>
+                <span className="footer-brand-name">{strings.footer.brand}</span>
+                <span className="footer-brand-sub">{strings.footer.brandSub}</span>
+              </div>
+            </div>
+            <p className="footer-tagline">{strings.footer.tagline}</p>
+          </div>
+
+          <div className="footer-nav-col">
+            <p className="footer-col-heading">{strings.footer.navHeading}</p>
+            <ul className="footer-nav-list">
+              {strings.footer.navLinks.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={`#${link.page}`}
+                    className="footer-nav-link"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setActivePage(link.page as 'home' | 'publications' | 'professor' | 'team' | 'contact');
+                      if (link.section) {
+                        setTimeout(() => document.getElementById(link.section!)?.scrollIntoView({ behavior: 'smooth' }), 120);
+                      } else {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }
+                    }}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="footer-contact-col">
+            <p className="footer-col-heading">{strings.footer.contactHeading}</p>
+            <ul className="footer-contact-list">
+              <li>
+                <MapPinIcon />
+                <span>{strings.footer.address}</span>
+              </li>
+              <li>
+                <PhoneIcon />
+                <a href={`tel:${strings.footer.phone}`}>{strings.footer.phone}</a>
+              </li>
+              <li>
+                <MailIcon />
+                <a href={`mailto:${strings.footer.email}`}>{strings.footer.email}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="footer-bottom">
+          <p>{strings.footer.copyright}</p>
         </div>
       </footer>
     </div>
