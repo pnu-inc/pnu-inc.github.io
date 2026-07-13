@@ -2,17 +2,18 @@
 .recruit-banner {
   margin-top: 32px;
   border-radius: 20px;
-  padding: 28px 32px;
+  padding: 34px 44px 48px;
   display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 32px;
+  grid-template-columns: 5fr 7fr;
+  gap: 0;
   align-items: center;
   position: relative;
   overflow: hidden;
   color: #fff;
   background:
-    radial-gradient(ellipse at 85% 40%, rgba(255, 180, 80, 0.28) 0%, transparent 55%),
-    linear-gradient(125deg, #6e1a0c 0%, #b53922 45%, #cc5020 75%, #d97020 100%);
+    radial-gradient(ellipse at 82% 10%, rgba(255, 200, 95, 0.28) 0%, transparent 48%),
+    radial-gradient(ellipse at 6% 90%, rgba(48, 4, 0, 0.5) 0%, transparent 40%),
+    linear-gradient(130deg, #7a1e0e 0%, #b53922 38%, #c94e1a 66%, #d97020 100%);
   animation: banner-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.3s both;
 }
 
@@ -21,23 +22,23 @@
   to   { transform: translateY(0);    opacity: 1; }
 }
 
-/* 배경 글로우 장식 */
 .recruit-banner-glow {
   position: absolute;
   top: -30%;
-  right: 28%;
-  width: 240px;
-  height: 240px;
-  background: radial-gradient(circle, rgba(255, 210, 130, 0.18) 0%, transparent 70%);
+  right: 30%;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(255, 225, 145, 0.13) 0%, transparent 70%);
   pointer-events: none;
   border-radius: 50%;
 }
 
-/* 왼쪽 텍스트 영역 */
+/* ── Left column ── */
 .recruit-left {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 22px;
+  padding-right: 48px;
   position: relative;
   z-index: 1;
 }
@@ -49,120 +50,186 @@
   background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 100px;
-  padding: 5px 14px;
-  font-size: 0.72rem;
+  padding: 5px 13px;
+  font-size: 0.7rem;
   font-weight: 800;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
   width: fit-content;
 }
 
 .recruit-pulse {
   display: block;
-  width: 7px;
-  height: 7px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: #fff;
   animation: pulse-dot 1.6s ease-in-out infinite;
 }
 
 @keyframes pulse-dot {
-  0%, 100% { opacity: 1;   transform: scale(1);    }
-  50%       { opacity: 0.45; transform: scale(0.7); }
+  0%, 100% { opacity: 1;   transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.65); }
 }
 
 .recruit-headline {
   margin: 0;
-  font-size: 1.15rem;
-  font-weight: 500;
-  line-height: 1.45;
-  letter-spacing: -0.01em;
-  opacity: 0.95;
-}
-
-.recruit-headline strong {
-  display: block;
-  font-size: clamp(1.4rem, 2.2vw, 1.75rem);
+  font-size: clamp(1.85rem, 2.6vw, 2.5rem);
   font-weight: 900;
   letter-spacing: -0.04em;
   line-height: 1.1;
-  opacity: 1;
+  color: #fff;
 }
 
+.recruit-positions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.recruit-position-tag {
+  font-size: 0.73rem;
+  font-weight: 700;
+  padding: 5px 13px;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.13);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.recruit-position-tag--highlight {
+  background: linear-gradient(135deg, #fde047, #f59e0b);
+  color: #6b1508;
+  border-color: transparent;
+  font-weight: 800;
+  box-shadow: 0 2px 10px rgba(251, 191, 36, 0.45);
+}
+
+/* ── Right column ── */
+.recruit-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-left: 48px;
+  border-left: 1px solid rgba(255, 255, 255, 0.14);
+  position: relative;
+  z-index: 1;
+}
+
+.recruit-perks {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.recruit-perk-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.recruit-perk-icon {
+  font-size: 1.2rem;
+  line-height: 1;
+  flex-shrink: 0;
+  width: 24px;
+  text-align: center;
+  margin-top: 2px;
+}
+
+.recruit-perk-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.recruit-perk-title {
+  font-size: 0.87rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+.recruit-perk-desc {
+  font-size: 0.73rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.4;
+}
+
+/* ── CTA ── */
 .recruit-cta {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   background: #fff;
   color: #8a1e0e;
-  padding: 9px 20px;
+  padding: 11px 24px;
   border-radius: 100px;
-  font-size: 0.84rem;
+  font-size: 0.85rem;
   font-weight: 800;
   text-decoration: none;
   width: fit-content;
   letter-spacing: -0.01em;
   transition: background 0.18s, transform 0.18s, box-shadow 0.18s;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.22);
 }
 
 .recruit-cta:hover {
   background: #fff8f5;
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.28);
 }
 
-/* 오른쪽 혜택 pill 그리드 */
-.recruit-perks {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  flex-shrink: 0;
-  position: relative;
-  z-index: 1;
+/* ── Banner Cat ── */
+.banner-cat {
+  position: absolute;
+  bottom: 50px;
+  right: -20px;
+  height: 240px;
+  width: auto;
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: screen;
+  opacity: 1;
+  transition: opacity 0.3s ease;
 }
 
-.recruit-perk {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 10px;
-  padding: 10px 14px;
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.01em;
-  white-space: nowrap;
-  text-align: center;
-  backdrop-filter: blur(6px);
-  transition: background 0.18s, border-color 0.18s;
+@media (max-width: 980px) { .banner-cat { opacity: 0.8; } }
+@media (max-width: 900px) { .banner-cat { opacity: 0.55; } }
+@media (max-width: 820px) { .banner-cat { opacity: 0.3; } }
+@media (max-width: 760px) { .banner-cat { opacity: 0.1; } }
+@media (max-width: 720px) { .banner-cat { display: none; } }
+
+/* ── Responsive ── */
+@media (max-width: 980px) {
+  .recruit-banner { padding: 28px 32px; }
+  .recruit-left   { padding-right: 28px; }
+  .recruit-right  { padding-left: 28px; }
 }
 
-.recruit-perk:hover {
-  background: rgba(255, 255, 255, 0.18);
-  border-color: rgba(255, 255, 255, 0.4);
-}
-
-@media (max-width: 900px) {
+@media (max-width: 720px) {
   .recruit-banner {
     grid-template-columns: 1fr;
-    padding: 24px 24px;
+    padding: 28px 24px;
   }
-  .recruit-perks {
-    grid-template-columns: repeat(4, auto);
-    justify-content: flex-start;
+  .recruit-left  { padding-right: 0; }
+  .recruit-right {
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    padding-left: 0;
+    padding-top: 24px;
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 480px) {
   .recruit-banner {
-    border-radius: 14px;
+    border-radius: 16px;
     margin-top: 24px;
+    padding: 24px 20px;
   }
-  .recruit-perks {
-    grid-template-columns: 1fr 1fr;
-  }
-  .recruit-headline {
-    font-size: 1rem;
-  }
+  .recruit-headline { font-size: 1.65rem; }
 }
 
 :root {

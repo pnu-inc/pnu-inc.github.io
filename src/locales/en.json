@@ -89,8 +89,8 @@
         "categoryType": "physical",
         "title": "VLA-Based Robot Arm Control",
         "description": "Applying Vision-Language-Action models to robotic manipulation driven by natural language commands.",
-        "detail": "We apply a VLA architecture combining large language models (LLMs) with vision models to a 6-DOF robot arm. The system learns an end-to-end pipeline that lets the robot understand and execute natural language instructions such as 'pick up the red cup and place it in the box.' We also research quantization and pruning techniques to enable real-time operation on edge devices.",
-        "keywords": ["VLA", "Robot Manipulation", "LLM", "Edge AI", "Model Compression"],
+        "detail": "#Background: Limits of Traditional Robotics & the Rise of Physical AI\nConventional robots handle only pre-programmed repetitive tasks, making them brittle in unexpected situations. Physical AI — where AI perceives and acts in the real world — is rapidly gaining attention. The key challenge is bridging natural-language commands and immediate physical actions.\n#Our Approach: Lightweight VLA with Action Chunk Control\nWe adopt a VLA framework that links Vision, Language, and Action end-to-end. Using lightweight models such as smolVLA, we introduce Action Chunk Length Control — dynamically adjusting how many actions the robot plans at once based on task complexity.\n#How It Works: Sim-to-Real Transfer with Data Augmentation\nThe robot takes visual input and text commands simultaneously to compute optimal joint movements. High-fidelity simulation environments and data augmentation train the model to generalize robustly to unseen real-world scenarios.\n#Impact\nAdaptive chunk control enables smoother, more efficient manipulation — paving the way for flexible service robots in smart factories and everyday life.",
+        "keywords": ["VLA", "Robot Manipulation", "LLM", "Edge AI"],
         "img": ""
       },
       {
@@ -99,7 +99,7 @@
         "categoryType": "physical",
         "title": "JetBot-Based Autonomous Robot",
         "description": "Researching autonomous indoor navigation with a small robot built on the NVIDIA Jetson platform.",
-        "detail": "We use the NVIDIA Jetson-based JetBot platform to research autonomous mobility in indoor environments. Core algorithms — camera-based object recognition, collision avoidance, and path following — are deployed in real time on the edge device. We also explore language-guided navigation by integrating VLA models, enabling the robot to move to destinations specified by natural language commands.",
+        "detail": "#Background: First Steps Toward Intelligent Autonomous Robots\nThis project is the Physical AI starting point — using the JetBot platform to build core technology that converts natural-language commands directly into physical driving behavior.\n#Our Approach: JetBot-Tailored Fine-Tuning\nWe adopt a VLA architecture built on SmolVLM-500M-Instruct. Instead of retraining the entire model, we freeze the vision and language encoders and fine-tune only the JetBot Action Head that predicts wheel motor commands, maximizing efficiency.\n#How It Works: Multimodal Perception to Wheel Control\nThe robot receives a real-time camera feed and a natural-language command together. The model fuses these inputs, and the Action Head predicts precise left/right motor speeds. Initial training leverages diverse driving data generated in the Isaac Sim 3D environment.\n#Impact\nThis work proves that a lightweight AI model can translate human commands into real-time wheel control — a strong foundation for expanding toward fully autonomous indoor navigation without heavy compute.",
         "keywords": ["JetBot", "NVIDIA Jetson", "Edge AI", "Autonomous Navigation", "Computer Vision"],
         "img": ""
       },
@@ -109,8 +109,8 @@
         "categoryType": "wireless",
         "title": "Wi-Fi CSI Indoor Localization",
         "description": "Estimating precise indoor positions without GPS by analyzing channel state information (CSI).",
-        "detail": "Wi-Fi channel state information (CSI) captures rich multipath data as signals propagate through indoor spaces. We propose Bilatangulation, a novel algorithm that estimates precise positions using just two APs while compensating for measurement errors. We also research Passive Channel Charting, which learns a spatial map without labeled data, minimizing deployment overhead.",
-        "keywords": ["Wi-Fi CSI", "Indoor Localization", "Bilatangulation", "Channel Charting", "Passive Sensing"],
+        "detail": "#Background: Environmental Fragility of Indoor Positioning\nExisting Wi-Fi CSI-based localization is highly sensitive to geometric changes such as transmitter repositioning, severely limiting large-scale deployment in cost-constrained IoT environments with few antennas.\n#Our Approach: Hybrid Model-Based Passive Channel Charting (PCC)\nWe propose a self-supervised PCC framework resilient to domain shifts. A hybrid CNN-Transformer architecture inside a Siamese Network captures both fine-grained local signal patterns and broad spatiotemporal correlations without location labels.\n#How It Works: Joint Spatiotemporal Feature Learning\nCNN extracts local patterns while the Transformer analyzes global dependencies. The model maps high-dimensional CSI data to a low-dimensional spatial coordinate system, requiring no labeled position data during training.\n#Impact\nValidated in real indoor environments, the system maintains low localization error even across unseen transmitter layouts — proving reliable positioning is achievable with commodity low-antenna IoT devices.",
+        "keywords": ["Wi-Fi CSI", "Indoor Localization", "Channel Charting", "Passive Sensing"],
         "img": ""
       },
       {
@@ -119,8 +119,8 @@
         "categoryType": "vision",
         "title": "Vision-Based Anomaly Detection",
         "description": "Automated weld defect and manufacturing anomaly detection using unsupervised learning and computer vision.",
-        "detail": "We apply unsupervised anomaly detection methods to manufacturing environments. Our system automatically detects weld defects in radiographic images using a framework trainable on normal data alone. XAI techniques are integrated to visually highlight defect locations and underlying causes, supporting automated quality control in industrial processes.",
-        "keywords": ["Anomaly Detection", "Computer Vision", "Unsupervised Learning", "XAI", "Smart Factory"],
+        "detail": "#Background: Limits of Automated Weld Inspection\nRadiographic testing (RT) in shipbuilding still relies on slow manual expert evaluation. Automation requires extracting weld regions that vary by pipe size, while defect samples are extremely scarce — often under 1% of all data.\n#Our Approach: Unified Framework on Minimal Data\nWe integrate few-shot segmentation for weld region extraction and unsupervised anomaly detection trained on normal data only — combining both into a single end-to-end framework.\n#How It Works: Defect Synthesis & Skip-Connection Restoration\nA deep learning model synthesizes artificial defects on normal images and learns to restore them. Skip-connection architecture ensures fine normal textures are precisely reconstructed while real defects stand out clearly, pinpointing defect locations.\n#Impact\nThe system delivers visual defect maps without large defect datasets or pixel annotations. At 88.2 FPS, it is ready for direct deployment in real industrial settings.",
+        "keywords": ["Anomaly Detection", "Computer Vision", "Unsupervised Learning", "Smart Factory"],
         "img": ""
       },
       {
@@ -129,8 +129,8 @@
         "categoryType": "wireless",
         "title": "LoRa Physical Layer AI",
         "description": "Improving preamble detection and symbol decoding performance under ultra-low SNR with deep learning.",
-        "detail": "We address the LoRa preamble detection problem under ultra-low SNR using a Chirp-Aware Self-Attention architecture that couples a chirp-recognition module with self-attention. The method achieves significantly better detection than conventional approaches and was published in IEEE Internet of Things Journal. We also apply Mask-Guided Neural Networks at the symbol decoding stage to further improve demodulation performance.",
-        "keywords": ["LoRa", "Preamble Detection", "Self-Attention", "LPWAN", "Symbol Decoding"],
+        "detail": "#Background: Structural Limits of LoRa Under Extreme Noise\nLoRa excels at long-range transmission, but in ultra-low SNR environments it fails to detect the signal preamble — the starting point of each frame — causing reception failures.\n#Our Approach: Self-Attention-Based Signal Analysis\nWe apply a Transformer-based self-attention architecture that analyzes global linear patterns across fragmented chirp signals, effectively separating meaningful signal from noise.\n#How It Works: Restore-then-Detect Pipeline\nDeep learning suppresses noise and reconstructs a clean symbol sequence close to the original. The refined sequence is then used to determine the presence and exact position of the preamble.\n#Impact\nValidated at extreme noise levels (−21.7 to −24.3 dB), the system achieves over 90% stable detection accuracy — improving receiver reliability in critical scenarios such as mountain rescue and maritime operations.",
+        "keywords": ["LoRa", "Preamble Detection", "Self-Attention", "LPWAN", "Restore-then-Detect"],
         "img": ""
       },
       {
@@ -139,8 +139,8 @@
         "categoryType": "rl",
         "title": "Hierarchical Reinforcement Learning",
         "description": "Solving complex long-horizon decision problems through automatic subgoal discovery and value-gradient exploration.",
-        "detail": "We research hierarchical reinforcement learning that automatically discovers subgoals in complex environments requiring long-horizon decision-making. Value-Gradient-based subgoal discovery and Reward Contrast exploration significantly improve learning efficiency in sparse-reward settings. Targeting autonomous agents for logistics and industrial environments, related work was presented at ICAICTA 2025.",
-        "keywords": ["Hierarchical RL", "Subgoal Discovery", "Sparse Reward", "Value-Gradient", "Autonomous Agent"],
+        "detail": "#Background: Logistics Bottlenecks in Shipyard Block Storage\nIn shipyard block assembly, congestion arises from storing and retrieving large hull blocks in temporary yards. Conventional heuristics and standard RL fail to account for how today's placement decisions affect future retrieval operations.\n#Our Approach: Two-Head Hierarchical RL (HRL)\nWe decompose the Planar Storage Location Assignment Problem (PSLAP) into two levels: an Option Controller that plans macro-level storage strategies with a long-term view, and a Primitive Controller that executes fine-grained movement actions.\n#How It Works: Delay-Aware Reward for Long-Horizon Planning\nInstead of rewarding only immediate placement, the system traces outcomes all the way to final retrieval and assigns rewards accordingly. A specialized replay memory lets the agent optimize both immediate execution and long-term operational efficiency.\n#Impact\nThe system maintains strong stability in densely packed yards and large-scale scenarios — establishing a solid foundation for real-world shipyard decision-support systems.",
+        "keywords": ["Hierarchical RL", "Planar Storage Location Assignment", "Industrial Logistics", "Scheduling"],
         "img": ""
       }
     ]
@@ -1567,7 +1567,7 @@
       },
       {
         "label": "Website",
-        "value": "http://pnu-inc.github.io",
+        "value": "https://pnu-inc.github.io",
         "type": "web"
       }
     ]

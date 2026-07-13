@@ -5,6 +5,7 @@ const professorPhoto = new URL('../assets/professor.png', import.meta.url).href;
 const physicalAIPhoto = new URL('../assets/physicalAI.png', import.meta.url).href;
 const wirelessAIPhoto = new URL('../assets/wirelessAI.png', import.meta.url).href;
 const incLogo = new URL('../assets/inc_logo2.png', import.meta.url).href;
+const catGif = new URL('../assets/cat.gif', import.meta.url).href;
 
 const researchImages = [physicalAIPhoto, wirelessAIPhoto];
 
@@ -85,13 +86,6 @@ const RocketIcon = () => (
   </svg>
 );
 
-const BriefcaseIcon = () => (
-  <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
-    <rect x="1" y="5" width="13" height="9" rx="1.5" stroke="currentColor" strokeWidth="1.3"/>
-    <path d="M4.5 5V3.5A1 1 0 0 1 5.5 2.5h4a1 1 0 0 1 1 1V5" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round"/>
-    <line x1="1" y1="9.5" x2="14" y2="9.5" stroke="currentColor" strokeWidth="1.2"/>
-  </svg>
-);
 
 const GraduationCapIcon = () => (
   <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
@@ -126,32 +120,6 @@ const CloseIcon = () => (
   </svg>
 );
 
-const MONOGRAM_PALETTES = [
-  ['#b53922', '#d4601a'],
-  ['#1d64c8', '#3b82f6'],
-  ['#7c3aed', '#a855f7'],
-  ['#0891b2', '#06b6d4'],
-  ['#059669', '#10b981'],
-  ['#b45309', '#f59e0b'],
-  ['#be185d', '#ec4899'],
-  ['#374151', '#6b7280'],
-];
-
-function getMonogram(name: string): string {
-  const trimmed = name.trim();
-  const words = trimmed.split(/\s+/);
-  if (words.length >= 2 && /[A-Za-z]/.test(trimmed)) {
-    return (words[0][0] + words[1][0]).toUpperCase();
-  }
-  if (/[A-Za-z]/.test(trimmed[0])) return trimmed.substring(0, 2).toUpperCase();
-  return trimmed[0];
-}
-
-function getPaletteIndex(name: string): number {
-  let hash = 0;
-  for (let i = 0; i < name.length; i++) hash = name.charCodeAt(i) + ((hash << 5) - hash);
-  return Math.abs(hash) % MONOGRAM_PALETTES.length;
-}
 
 function highlightAuthors(authors: string, highlights: string[]) {
   if (!highlights || highlights.length === 0) return <>{authors}</>;
@@ -225,6 +193,47 @@ const ExternalLinkIcon = () => (
   </svg>
 );
 
+const RecruitPaperIcon = () => (
+  <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+    <rect x="5" y="3" width="15" height="19" rx="2" stroke="currentColor" strokeWidth="1.6"/>
+    <path d="M9 9h8M9 13h8M9 17h5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+    <path d="M17 3v4h3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <circle cx="21" cy="21" r="5" fill="currentColor" fillOpacity="0.18" stroke="currentColor" strokeWidth="1.4"/>
+    <path d="M19 21h4M21 19v4" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
+  </svg>
+);
+
+const RecruitGlobeIcon = () => (
+  <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+    <circle cx="14" cy="14" r="10" stroke="currentColor" strokeWidth="1.6"/>
+    <path d="M14 4C14 4 10 9 10 14s4 10 4 10M14 4c0 0 4 5 4 10s-4 10-4 10" stroke="currentColor" strokeWidth="1.4"/>
+    <line x1="4" y1="14" x2="24" y2="14" stroke="currentColor" strokeWidth="1.4"/>
+    <line x1="5.5" y1="9" x2="22.5" y2="9" stroke="currentColor" strokeWidth="1.2" strokeDasharray="1.5 1.5"/>
+    <line x1="5.5" y1="19" x2="22.5" y2="19" stroke="currentColor" strokeWidth="1.2" strokeDasharray="1.5 1.5"/>
+  </svg>
+);
+
+const RecruitLabIcon = () => (
+  <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+    <rect x="3" y="17" width="22" height="7" rx="1.5" stroke="currentColor" strokeWidth="1.6"/>
+    <path d="M7 17V6.5M21 17V6.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+    <rect x="9" y="4" width="10" height="5" rx="1.2" stroke="currentColor" strokeWidth="1.5"/>
+    <path d="M7 20h2M11 20h2M15 20h2M19 20h2" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
+    <circle cx="22" cy="11" r="3.5" fill="currentColor" fillOpacity="0.15" stroke="currentColor" strokeWidth="1.3"/>
+    <path d="M20.8 11h2.4M22 9.8v2.4" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round"/>
+  </svg>
+);
+
+const RecruitProjectIcon = () => (
+  <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+    <rect x="3" y="10" width="22" height="14" rx="2" stroke="currentColor" strokeWidth="1.6"/>
+    <path d="M10 10V8a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+    <path d="M3 16h22" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
+    <path d="M12 16v1.5M16 16v1.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round"/>
+  </svg>
+);
+
+
 export default function App() {
   const pageRef = useRef<HTMLDivElement | null>(null);
   const glowRef = useRef<HTMLDivElement | null>(null);
@@ -259,11 +268,11 @@ export default function App() {
   };
 
   const CAT_COLORS: [string, string][] = [
-    ['#b53922', '#ff9d53'],
-    ['#334155', '#64748b'],
-    ['#92400e', '#d97706'],
-    ['#065f46', '#059669'],
-    ['#1e3a8a', '#2563eb'],
+    ['#7a1508', '#b53922'],   // bigtech: 딥레드 → 브랜드레드
+    ['#78350f', '#d97706'],   // defense: 딥앰버 → 골드
+    ['#1c1917', '#a8a29e'],   // finance: 다크웜 → 웜스톤
+    ['#431407', '#f97316'],   // startup: 다크브라운 → 비비드오렌지
+    ['#0c1a3e', '#1d64c8'],   // academia: 딥네이비 → 세련된파랑
   ];
 
   const handleCatMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -441,6 +450,12 @@ export default function App() {
       phone: string;
       email: string;
     };
+    careerHeading: string;
+    careers: Array<{
+      org: string;
+      role: string;
+      period: string;
+    }>;
     historyHeading: string;
     history: Array<{
       period: string;
@@ -805,15 +820,23 @@ export default function App() {
 
               <div className="recruit-banner">
                 <div className="recruit-banner-glow" aria-hidden="true" />
+                <img src={catGif} className="banner-cat" alt="" aria-hidden="true" />
+
+                {/* Left: headline + position tags + CTA */}
                 <div className="recruit-left">
                   <span className="recruit-badge">
                     <span className="recruit-pulse" />
                     지금 모집 중
                   </span>
                   <p className="recruit-headline">
-                    INC Lab과 함께 연구할<br />
-                    <strong>학부연구생</strong>을 찾습니다
+                    함께 연구하고<br />
+                    성장할 팀원을 찾습니다
                   </p>
+                  <div className="recruit-positions">
+                    <span className="recruit-position-tag recruit-position-tag--highlight">학부연구생</span>
+                    <span className="recruit-position-tag">석사과정</span>
+                    <span className="recruit-position-tag">박사과정</span>
+                  </div>
                   <a
                     href="https://arise-ai.pusan.ac.kr/admission-v3-dark.html"
                     target="_blank"
@@ -823,11 +846,39 @@ export default function App() {
                     학석사 연계과정 자세히 보기 →
                   </a>
                 </div>
-                <div className="recruit-perks">
-                  <span className="recruit-perk">✈ 해외 학회 참석</span>
-                  <span className="recruit-perk">🌐 해외 연구 연수</span>
-                  <span className="recruit-perk">📄 SCI 논문 공동저자</span>
-                  <span className="recruit-perk">⚡ 핵심 기술 습득</span>
+
+                {/* Right: perks */}
+                <div className="recruit-right">
+                  <div className="recruit-perks">
+                    <div className="recruit-perk-item">
+                      <span className="recruit-perk-icon"><RecruitPaperIcon /></span>
+                      <div className="recruit-perk-text">
+                        <span className="recruit-perk-title">SCI 논문 게재 기회</span>
+                        <span className="recruit-perk-desc">연구 성과에 따라 국제 저널 공동저자로 참여</span>
+                      </div>
+                    </div>
+                    <div className="recruit-perk-item">
+                      <span className="recruit-perk-icon"><RecruitGlobeIcon /></span>
+                      <div className="recruit-perk-text">
+                        <span className="recruit-perk-title">해외 학회 · 연구 연수</span>
+                        <span className="recruit-perk-desc">국내외 학회 참석 및 해외 연구기관 방문 지원</span>
+                      </div>
+                    </div>
+                    <div className="recruit-perk-item">
+                      <span className="recruit-perk-icon"><RecruitLabIcon /></span>
+                      <div className="recruit-perk-text">
+                        <span className="recruit-perk-title">GPU 서버 · 최신 개발 환경</span>
+                        <span className="recruit-perk-desc">고성능 GPU 클러스터 및 최신 연구 장비 지원</span>
+                      </div>
+                    </div>
+                    <div className="recruit-perk-item">
+                      <span className="recruit-perk-icon"><RecruitProjectIcon /></span>
+                      <div className="recruit-perk-text">
+                        <span className="recruit-perk-title">정부 · 기업 과제 참여</span>
+                        <span className="recruit-perk-desc">국가 R&amp;D 및 기업 협력 프로젝트 실전 경험</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </section>
@@ -1248,7 +1299,7 @@ export default function App() {
                     <span className={`member-role${member.type ? ` member-role--${member.type}` : ''}`}>{member.role}</span>
                     <span className="member-description-inline">{member.description}</span>
                   </div>
-                  <p className="member-email">{member.email}</p>
+                  {member.degreeLevel !== 'undergrad' && <p className="member-email">{member.email}</p>}
                 </div>
               ))}
             </div>
