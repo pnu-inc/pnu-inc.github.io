@@ -1659,7 +1659,7 @@
       },
       {
         "label": "이메일",
-        "value": "mobile@mobile.re.kr",
+        "value": "dhkim1106@mobile.re.kr",
         "type": "email"
       },
       {
@@ -1685,7 +1685,7 @@
     "contactHeading": "연락처",
     "address": "부산광역시 금정구 부산대학로63번길 2 IT관 506호",
     "phone": "051-510-3941",
-    "email": "mobile@mobile.re.kr",
+    "email": "dhkim1106@mobile.re.kr",
     "copyright": "© 2026 PNU INC Lab · 부산대학교 정보컴퓨터공학부"
   },
   "toggleLabel": "EN"

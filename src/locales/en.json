@@ -1563,7 +1563,7 @@
       },
       {
         "label": "Email",
-        "value": "mobile@mobile.re.kr",
+        "value": "dhkim1106@mobile.re.kr",
         "type": "email"
       },
       {
@@ -1589,7 +1589,7 @@
     "contactHeading": "Contact",
     "address": "Room 506, IT Building, PNU, Busan 46241",
     "phone": "051-510-3941",
-    "email": "mobile@mobile.re.kr",
+    "email": "dhkim1106@mobile.re.kr",
     "copyright": "© 2026 PNU INC Lab · Dept. of CSE, Pusan National University"
   },
   "toggleLabel": "KO"
