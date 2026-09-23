@@ -385,22 +385,15 @@
         "name": "Donghyun Kim",
         "role": "Research Professor",
         "degreeLevel": "professor",
-        "email": "dhkim1106@mobile.re.kr.com",
+        "email": "dhkim1106@mobile.re.kr",
         "description": "Multimedia, Wireless Communication, IoT"
       },
       {
         "name": "Changhong Lee",
         "role": "Integrated Master's/PhD",
         "degreeLevel": "phd",
-        "email": "dlckdghd96@mobile.re.kr.com",
+        "email": "dlckdghd96@mobile.re.kr",
         "description": "Wi-Fi Sensing, Passive Channel Charting"
-      },
-      {
-        "name": "Hoang Quoc Hong Nhat",
-        "role": "Doctoral Researcher",
-        "degreeLevel": "phd",
-        "email": "nhat.hqh@mobile.re.kr",
-        "description": "LPWAN, Adaptive Control for Wireless Networks"
       },
       {
         "name": "Seungho Lee",
@@ -592,7 +585,8 @@
         { "name": "Konan Ruth Emmanuelle Victoire","degree": "masters" },
         { "name": "강명현",                        "degree": "masters" },
         { "name": "조아라",                        "degree": "masters" },
-        { "name": "박재현",                        "degree": "masters" }
+        { "name": "박재현",                        "degree": "masters" },
+        { "name": "Hoang Quoc Hong Nhat",         "degree": "phd" }
       ],
       "companies": [
         "Samsung Electronics",
@@ -637,6 +631,26 @@
       {
         "year": "2026",
         "papers": [
+          {
+            "title": "Vibration Condition-Aware Dual-Branch Fusion Network for Battery SOC Estimation",
+            "authors": "Kyung-Heum Cho, Seung-Ho Lee, Jong-Deok Kim",
+            "venue": "IEEE Access",
+            "url": "https://ieeexplore.ieee.org/document/11631812",
+            "highlights": [
+              "Kyung-Heum Cho, Seung-Ho Lee, Jong-Deok Kim"
+            ],
+            "type": "journal"
+          },
+          {
+            "title": "Cross-Domain Passive Channel Charting from Wi-Fi Sensing toward Robust Indoor Positioning",
+            "authors": "Chang-Hong Lee, Hyuckjun Choi, Yutaka Arakawa, Jong-Deok Kim",
+            "venue": "PerCom Workshops 2026",
+            "url": "https://ieeexplore.ieee.org/document/11585421",
+            "highlights": [
+              "Chang-Hong Lee,Jong-Deok Kim"
+            ],
+            "type": "conference"
+          },
           {
             "title": "Chirp-Aware Self-Attention for Robust LoRa Preamble Detection under Ultralow SNR",
             "authors": "Yun-Seob Kim, Seunggyu Byeon, Dong-Hyun Kim, Mikio Hasegawa, Jong-Deok Kim",
