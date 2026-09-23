@@ -1485,6 +1485,20 @@ a.contact-item-value:hover {
   opacity: 1;
 }
 
+.alumni-degree-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.alumni-affiliation-logo {
+  height: 14px;
+  width: auto;
+  object-fit: contain;
+  opacity: 0.75;
+  flex-shrink: 0;
+}
+
 .alumni-degree {
   display: inline-block;
   font-size: 0.68rem;

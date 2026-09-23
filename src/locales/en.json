@@ -569,7 +569,7 @@
         { "name": "서형윤",                        "degree": "phd"     },
         { "name": "공종민",                        "degree": "masters" },
         { "name": "이성호",                        "degree": "phd"     },
-        { "name": "변승규",                        "degree": "phd"     },
+        { "name": "변승규",                        "degree": "phd",     "logo": "kmou" },
         { "name": "정종민",                        "degree": "masters" },
         { "name": "강인용",                        "degree": "masters" },
         { "name": "손성호",                        "degree": "masters" },

@@ -6,6 +6,9 @@ const physicalAIPhoto = new URL('../assets/physicalAI.png', import.meta.url).hre
 const wirelessAIPhoto = new URL('../assets/wirelessAI.png', import.meta.url).href;
 const incLogo = new URL('../assets/inc_logo2.png', import.meta.url).href;
 const catGif = new URL('../assets/cat.gif', import.meta.url).href;
+const kmouLogo = new URL('../assets/kmou_logo.svg', import.meta.url).href;
+
+const alumniLogos: Record<string, string> = { kmou: kmouLogo };
 
 const researchImages = [physicalAIPhoto, wirelessAIPhoto];
 
@@ -1389,9 +1392,18 @@ export default function App() {
                 <div className="alumni-name-wall">
                   {teamStrings.alumniSection.names.map((item, idx) => (
                     <div key={idx} className="alumni-name-card">
-                      <span className={`alumni-degree alumni-degree--${item.degree}`}>
-                        {teamStrings.alumniSection.degreeLabels[item.degree]}
-                      </span>
+                      <div className="alumni-degree-row">
+                        <span className={`alumni-degree alumni-degree--${item.degree}`}>
+                          {teamStrings.alumniSection.degreeLabels[item.degree]}
+                        </span>
+                        {'logo' in item && item.logo && alumniLogos[item.logo as string] && (
+                          <img
+                            className="alumni-affiliation-logo"
+                            src={alumniLogos[item.logo as string]}
+                            alt={item.logo as string}
+                          />
+                        )}
+                      </div>
                       <span className="alumni-name-text">{item.name}</span>
                     </div>
                   ))}
